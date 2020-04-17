@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/LVL2checkpoint007/static/css/main.9afc85dd.chunk.css",
+    "main.js": "/LVL2checkpoint007/static/js/main.dd56f0dd.chunk.js",
+    "main.js.map": "/LVL2checkpoint007/static/js/main.dd56f0dd.chunk.js.map",
+    "runtime-main.js": "/LVL2checkpoint007/static/js/runtime-main.8defa0ba.js",
+    "runtime-main.js.map": "/LVL2checkpoint007/static/js/runtime-main.8defa0ba.js.map",
+    "static/css/2.de424728.chunk.css": "/LVL2checkpoint007/static/css/2.de424728.chunk.css",
+    "static/js/2.fd9c80e5.chunk.js": "/LVL2checkpoint007/static/js/2.fd9c80e5.chunk.js",
+    "static/js/2.fd9c80e5.chunk.js.map": "/LVL2checkpoint007/static/js/2.fd9c80e5.chunk.js.map",
+    "index.html": "/LVL2checkpoint007/index.html",
+    "precache-manifest.2dccaa2f7ffdc27d805fd587d5587a08.js": "/LVL2checkpoint007/precache-manifest.2dccaa2f7ffdc27d805fd587d5587a08.js",
+    "service-worker.js": "/LVL2checkpoint007/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/LVL2checkpoint007/static/css/2.de424728.chunk.css.map",
+    "static/css/main.9afc85dd.chunk.css.map": "/LVL2checkpoint007/static/css/main.9afc85dd.chunk.css.map",
+    "static/js/2.fd9c80e5.chunk.js.LICENSE.txt": "/LVL2checkpoint007/static/js/2.fd9c80e5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8defa0ba.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.fd9c80e5.chunk.js",
+    "static/css/main.9afc85dd.chunk.css",
+    "static/js/main.dd56f0dd.chunk.js"
+  ]
+}
