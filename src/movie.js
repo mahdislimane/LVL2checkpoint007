@@ -86,22 +86,22 @@ export default function Movie(props) {
 
               <Dropdown.Menu>
                 <Dropdown.Item onClick={() => setrateSearch(1)}>
-                  <img className="star" src="./star.png" alt="" /> <b>+</b>
+                  <img className="star" src="./star.png" alt="" />
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => setrateSearch(2)}>
                   <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" /> <b>+</b>
+                  <img className="star" src="./star.png" alt="" />
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => setrateSearch(3)}>
                   <img className="star" src="./star.png" alt="" />
                   <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" /> <b>+</b>
+                  <img className="star" src="./star.png" alt="" />
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => setrateSearch(4)}>
                   <img className="star" src="./star.png" alt="" />
                   <img className="star" src="./star.png" alt="" />
                   <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" /> <b>+</b>
+                  <img className="star" src="./star.png" alt="" />
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => setrateSearch(5)}>
                   <img className="star" src="./star.png" alt="" />
