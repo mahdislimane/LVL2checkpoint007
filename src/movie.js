@@ -4,11 +4,17 @@ import MovieCard from "./movie/movie-card";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Dropdown } from "react-bootstrap";
+import StarRatingComponent from "react-star-rating-component";
+import "./App.css";
 
 export default function Movie(props) {
+  const [showsec, setShowsec] = useState(false);
+  const handleClosesec = () => setShowsec(false);
+  const handleShowsec = () => {
+    setShowsec(true);
+  };
   const [keyword, setKeyword] = useState("");
-  const [rateSearch, setrateSearch] = useState("");
+  const [rateSearch, setrateSearch] = useState(1);
   const [newMovie, setnewMovie] = useState({
     name: "",
     pic: "",
@@ -50,26 +56,37 @@ export default function Movie(props) {
   const handleChange = (e) => {
     setnewMovie({ ...newMovie, [e.target.name]: e.target.value });
   };
+  const validateMovie = () => {
+    setmovieList([...movieList, newMovie]);
+    alert("movie added");
+    handleClose();
+    setnewMovie({ name: "", pic: "", rating: 0, year: 0 });
+  };
+  const newMovieRatinOk = () => {
+    newMovie.rating <= 5
+      ? validateMovie()
+      : alert("please insert a rate between 0 and 5");
+  };
   const addMovie = () => {
     newMovie.name
       ? newMovie.pic
         ? newMovie.rating
           ? newMovie.year
-            ? setmovieList([...movieList, newMovie])
+            ? newMovieRatinOk()
             : alert("please insert a year")
           : alert("please insert a rate")
         : alert("please insert a picture URL")
       : alert("please insert a name");
-    handleClose();
-    setnewMovie({ name: "", pic: "", rating: 0, year: 0 });
-    alert("movie added");
   };
   useEffect(() => {
     document.title = `${movieCard.name}`;
   }, [movieCard]);
+  const onStarClick = (nextValue) => {
+    setrateSearch(nextValue);
+  };
   return (
     <div className="container-fluid row">
-      <div className="col-4 movieList">
+      <div className="col-12 movieList">
         <div style={{ display: "flex" }}>
           <div className="search">
             <input
@@ -79,46 +96,19 @@ export default function Movie(props) {
                 setKeyword(e.target.value);
               }}
             ></input>
-            <Dropdown>
-              <Dropdown.Toggle id="dropdown-basic-button">
-                search by rating
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item onClick={() => setrateSearch(1)}>
-                  <img className="star" src="./star.png" alt="" />
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => setrateSearch(2)}>
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => setrateSearch(3)}>
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => setrateSearch(4)}>
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => setrateSearch(5)}>
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                  <img className="star" src="./star.png" alt="" />
-                </Dropdown.Item>
-                <Dropdown.Item onClick={() => setrateSearch("")}>
-                  All
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
+            <div style={{ fontSize: "30px" }}>
+              <StarRatingComponent
+                name="searching with stars"
+                starCount={5}
+                value={rateSearch}
+                onStarClick={onStarClick}
+              />
+            </div>
           </div>
           <Button onClick={handleShow}>+</Button>
         </div>
         <MovieList
+          setShowsec={(x) => setShowsec(x)}
           rateSearch={rateSearch}
           movieList={movieList.filter((el) =>
             el.name.toUpperCase().includes(keyword.toUpperCase())
@@ -128,7 +118,12 @@ export default function Movie(props) {
       </div>
 
       <div className="col-8">
-        <MovieCard movieCard={movieCard} />
+        <MovieCard
+          movieCard={movieCard}
+          show={showsec}
+          setShow={setShowsec}
+          handleClose={(x) => handleClosesec(x)}
+        />
       </div>
       <div>
         <Modal show={show} onHide={handleClose}>
