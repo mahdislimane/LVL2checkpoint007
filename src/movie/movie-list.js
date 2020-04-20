@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import StarRatingComponent from "react-star-rating-component";
 
 export default function MovieList(props) {
   let filtred = props.movieList.filter((el) => el.rating >= props.rateSearch);
@@ -39,6 +39,15 @@ export default function MovieList(props) {
                 props.setShowsec(true);
               }}
             ></img>
+
+            <StarRatingComponent
+              name={el.name}
+              value={el.rating}
+              starCount={"5"}
+              starColor={"#ffb400"}
+              emptyStarColor={"#333"}
+              editing={false}
+            />
           </div>
         );
       })}

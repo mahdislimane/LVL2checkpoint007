@@ -1,7 +1,7 @@
 import React from "react";
 import StarRatingComponent from "react-star-rating-component";
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+
 import "../App.css";
 
 export default function MovieCard(props) {
@@ -23,11 +23,6 @@ export default function MovieCard(props) {
           <h4>{props.movieCard.year}</h4>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="primary" onClick={props.handleClose}>
-          OK
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 }
